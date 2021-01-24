@@ -4,7 +4,11 @@ class Furnitures {
   }
 
   async getAllFurnitures() {
-    const res = await fetch(this.baseUrl);
-    return await res.json();
+    try {
+      const res = await fetch(this.baseUrl);
+      return await res.json();
+    } catch (error) {
+      return undefined;
+    }
   }
 }
