@@ -1,0 +1,34 @@
+.furnitureCard {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: gray;
+
+  border-style: solid;
+  border-color: gray;
+}
+.furnitureCard:hover {
+  border-color: black;
+  background-color: #b6b6b6;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 280px;
+}
+.listFunriture {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container {
+  margin-bottom: 80px;
+}
+.outer {
+  margin: 30px;
+}

@@ -11,4 +11,12 @@ class Furnitures {
       return undefined;
     }
   }
+  async getFunrituresById(id) {
+    try {
+      const res = await fetch(this.baseUrl + id);
+      return await res.json();
+    } catch (error) {
+      return undefined;
+    }
+  }
 }
