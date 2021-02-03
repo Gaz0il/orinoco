@@ -6,7 +6,7 @@ async function listfurniture() {
 async function cardBuilderIndex() {
   const dataFurnitures = await listfurniture();
   var containerParent = document.getElementById("listFunriture");
-  console.log(dataFurnitures);
+
   if (dataFurnitures != undefined) {
     for (let i = 0; i < dataFurnitures.length; i++) {
       const card = document.createElement("div");

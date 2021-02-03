@@ -5,13 +5,38 @@ async function getDetailById(id) {
   const getdata = new Furnitures();
   return await getdata.getFunrituresById(id);
 }
-getDetailById(meubleId);
 
-/*
-description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-imageUrl: "http://localhost:3000/images/oak_1.jpg"
-name: "Cross Table"
-price: 59900
-varnish: (3) ["Dark Oak", "Light Oak", "Mahogany"]
-_id: "5be9cc611c9d440000c1421e"
-*/
+function selectId(id) {
+  const select = document.getElementById(id);
+  return select;
+}
+async function forgePrice() {
+  const detailProduct = await getDetailById(meubleId);
+  var quantity = document.getElementById("inputValue").value;
+  selectId("prix").innerHTML =
+    "Prix du lot : " + (detailProduct.price / 100) * quantity + " €";
+}
+
+async function productBuilder() {
+  const detailProduct = await getDetailById(meubleId);
+  try {
+    selectId("idProduit").innerHTML = detailProduct.name;
+    selectId("description").innerHTML = detailProduct.description;
+    selectId("imgDetail").src = detailProduct.imageUrl;
+    for (let index = 0; index < detailProduct.varnish.length; index++) {
+      let buildoption = document.createElement("option");
+      selectId("inputState").appendChild(buildoption);
+      buildoption.innerHTML = detailProduct.varnish[index];
+      buildoption.setAttribute = detailProduct.varnish[index];
+    }
+    forgePrice(detailProduct.price);
+    console.log("Payload ok");
+  } catch (error) {
+    selectId("idProduit").innerHTML = "Out of stock";
+    selectId("description").innerHTML = "Out of stock";
+    selectId("imgDetail").src = "/./image/outofstock.png";
+    console.log("erreur: " + error);
+  }
+}
+
+productBuilder();

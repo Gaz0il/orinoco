@@ -1,3 +1,4 @@
+/**************index***************/
 .furnitureCard {
   display: flex;
   flex-direction: column;
@@ -31,4 +32,57 @@
 }
 .outer {
   margin: 30px;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+/***************product****************/
+section {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  justify-content: center;
+}
+.detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.img-thumbnail {
+  max-width: 60%;
+  height: auto;
+  max-height: 500px;
+}
+.stringDetail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+.description {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.price {
+  width: 100%;
+}
+
+.form-group {
+  width: fit-content;
+}
+.form-control {
+  width: fit-content;
+}
+.selectBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-items: center;
 }
