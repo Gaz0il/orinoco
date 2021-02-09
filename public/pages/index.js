@@ -5,9 +5,9 @@ async function listfurniture() {
 
 async function cardBuilderIndex() {
   const dataFurnitures = await listfurniture();
-  var containerParent = document.getElementById("listFunriture");
+  const containerParent = document.getElementById("listFunriture");
 
-  if (dataFurnitures != undefined) {
+  if (dataFurnitures !== undefined) {
     for (let i = 0; i < dataFurnitures.length; i++) {
       const card = document.createElement("div");
       card.className = "furnitureCard";
@@ -38,7 +38,7 @@ async function cardBuilderIndex() {
       const buttonCart = document.createElement("a");
       buttonCart.className = "btn btn-light";
       buttonCart.innerHTML = "Ajouter panier";
-      buttonCart.href = "";
+      buttonCart.href = "produit.html?id=" + card.id;
 
       containerParent.appendChild(card);
       card.appendChild(imageFurniture);
@@ -47,7 +47,6 @@ async function cardBuilderIndex() {
       cardBody.appendChild(descriptionFurniture);
       cardBody.appendChild(buttonDetail);
       cardBody.appendChild(buttonCart);
-      console.log(buttonCart, buttonDetail);
     }
   } else {
     const noNetwork = document.createElement("div");

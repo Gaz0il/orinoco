@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-let meubleId = params.get("id");
+const meubleId = params.get("id");
 
 async function getDetailById(id) {
   const getdata = new Furnitures();
@@ -12,7 +12,7 @@ function selectId(id) {
 }
 async function forgePrice() {
   const detailProduct = await getDetailById(meubleId);
-  var quantity = document.getElementById("inputValue").value;
+  const quantity = document.getElementById("inputValue").value;
   selectId("prix").innerHTML =
     "Prix du lot : " + (detailProduct.price / 100) * quantity + " €";
 }
@@ -24,7 +24,7 @@ async function productBuilder() {
     selectId("description").innerHTML = detailProduct.description;
     selectId("imgDetail").src = detailProduct.imageUrl;
     for (let index = 0; index < detailProduct.varnish.length; index++) {
-      let buildoption = document.createElement("option");
+      const buildoption = document.createElement("option");
       selectId("inputState").appendChild(buildoption);
       buildoption.innerHTML = detailProduct.varnish[index];
       buildoption.setAttribute = detailProduct.varnish[index];

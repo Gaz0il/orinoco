@@ -86,3 +86,6 @@ section {
   justify-content: space-between;
   justify-items: center;
 }
+.form-row {
+  margin-top: 20px;
+}
