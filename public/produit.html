@@ -49,7 +49,9 @@
               <a class="nav-link" href="index.html">Accueil </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="panier.html">Panier</a>
+              <a class="nav-link" href="panier.html"
+                >Panier <span id="notif" class="badge bg-warning">0</span></a
+              >
             </li>
           </ul>
         </div>
@@ -69,13 +71,13 @@
               <select id="inputState" class="form-control"></select>
             </div>
             <div class="form-group col-md-8 bg-light">
-              <label for="inputValue">Quantité</label>
+              <label id="quant" for="inputValue">Quantité</label>
               <select
                 id="inputValue"
                 class="form-control"
                 onchange="forgePrice()"
               >
-                <option value="1">1</option>
+                <option value="1" selected="selected">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -85,7 +87,10 @@
                 <option value="8">8</option>
                 <option value="9">9</option>
               </select>
-              <a class="btn btn-dark text-light" onclick="addToLocalStorage()"
+              <a
+                class="btn btn-dark text-light"
+                onclick="addBasket()"
+                href="./index.html"
                 >Ajouter au panier</a
               >
             </div>
@@ -105,4 +110,5 @@
   </footer>
   <script src="./Repository/furnitures.js"></script>
   <script src="./pages/produit.js"></script>
+  <script src="./notifications.js"></script>
 </html>

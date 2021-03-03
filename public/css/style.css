@@ -89,3 +89,24 @@ section {
 .form-row {
   margin-top: 20px;
 }
+
+.btn:active {
+  transform: scale(0.98);
+
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: max-content;
+}
+
+.card .card {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  max-width: 25em;
+  min-width: auto;
+}

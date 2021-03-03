@@ -25,10 +25,13 @@ async function productBuilder() {
     selectId("imgDetail").src = detailProduct.imageUrl;
     for (let index = 0; index < detailProduct.varnish.length; index++) {
       const buildoption = document.createElement("option");
+
       selectId("inputState").appendChild(buildoption);
+      selectId("inputState").value = detailProduct.varnish[index];
       buildoption.innerHTML = detailProduct.varnish[index];
       buildoption.setAttribute = detailProduct.varnish[index];
     }
+    document.getElementById("inputState").selectedIndex = 0;
     forgePrice(detailProduct.price);
     console.log("Payload ok");
   } catch (error) {
@@ -37,6 +40,37 @@ async function productBuilder() {
     selectId("imgDetail").src = "/./image/outofstock.png";
     console.log("erreur: " + error);
   }
+
+  notification();
 }
 
 productBuilder();
+
+function addBasket() {
+  const basket =
+    localStorage.getItem("basket") !== null
+      ? JSON.parse(localStorage.getItem("basket"))
+      : [];
+
+  const itemStore = {
+    id: meubleId,
+    color: selectId("inputState").value,
+    quantity: selectId("inputValue").value,
+  };
+  if (
+    basket.some(
+      (element) =>
+        element.id === itemStore.id && element.color === itemStore.color
+    )
+  ) {
+    const filter = basket.find(
+      (i) => i.id === itemStore.id && i.color === itemStore.color
+    );
+    filter.quantity = parseInt(filter.quantity) + parseInt(itemStore.quantity);
+    localStorage.setItem("basket", JSON.stringify(basket));
+  } else {
+    basket.push(itemStore);
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }
+  notification();
+}

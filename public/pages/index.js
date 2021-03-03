@@ -5,6 +5,7 @@ async function listfurniture() {
 
 async function cardBuilderIndex() {
   const dataFurnitures = await listfurniture();
+  console.log(dataFurnitures);
   const containerParent = document.getElementById("listFunriture");
 
   if (dataFurnitures !== undefined) {
@@ -35,18 +36,13 @@ async function cardBuilderIndex() {
       buttonDetail.innerHTML = "Détails";
       buttonDetail.href = "produit.html?id=" + card.id;
 
-      const buttonCart = document.createElement("a");
-      buttonCart.className = "btn btn-light";
-      buttonCart.innerHTML = "Ajouter panier";
-      buttonCart.href = "produit.html?id=" + card.id;
-
       containerParent.appendChild(card);
       card.appendChild(imageFurniture);
       card.appendChild(cardBody);
       cardBody.appendChild(titleFurniture);
       cardBody.appendChild(descriptionFurniture);
       cardBody.appendChild(buttonDetail);
-      cardBody.appendChild(buttonCart);
+      notification();
     }
   } else {
     const noNetwork = document.createElement("div");
