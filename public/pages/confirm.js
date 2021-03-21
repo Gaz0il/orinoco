@@ -1,9 +1,9 @@
-async function dataConfirmation() {
+function dataConfirmation() {
   return JSON.parse(localStorage.getItem("confirmation"));
 }
 /*******Contruction de la confirmation ******/
-async function confirmationBuilder() {
-  const data = await dataConfirmation();
+function confirmationBuilder() {
+  const data = dataConfirmation();
 
   document.getElementById("numCommande").innerHTML = data.orderId;
   document.getElementById("price").innerHTML = data.price + " €";

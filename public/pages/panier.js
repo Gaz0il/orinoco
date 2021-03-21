@@ -67,8 +67,8 @@ basketbuilder();
 
 /********************* Panier vide ************************/
 
-async function hideForm() {
-  (await JSON.parse(localStorage.getItem("basket"))) == null
+function hideForm() {
+  JSON.parse(localStorage.getItem("basket")) == null
     ? (document.getElementById("formulaire").hidden = true)
     : (document.getElementById("formulaire").hidden = false);
   document.getElementById("card-container").innerHTML = "Panier Vide";
