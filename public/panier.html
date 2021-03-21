@@ -46,8 +46,8 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="panier.html"
-              >Panier <span id="notif" class="badge bg-warning">0</span></a
-            >
+              >Panier <span id="notif" class="badge bg-warning"></span
+            ></a>
           </li>
         </ul>
       </div>
@@ -62,66 +62,57 @@
           </div>
         </div>
       </div>
-      <form>
-        <div class="form-row">
-          <div class="col-md-3 mb-3">
-            <label for="validationDefault01">Prénom</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validationDefault01"
-              placeholder="Prénom"
-              value="Mark"
-              required
-            />
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="validationDefault02">Nom</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validationDefault02"
-              placeholder="Nom"
-              value="Otto"
-              required
-            />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="col-md-3 mb-3">
-            <label for="validationDefault03">Ville</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validationDefault03"
-              placeholder="Ville"
-              required
-            />
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="validationDefault04">Pays</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validationDefault04"
-              placeholder="Pays"
-              required
-            />
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="validationDefault05">Code postal</label>
-            <input
-              type="text"
-              class="form-control"
-              id="validationDefault05"
-              placeholder="Code postal"
-              required
-            />
-          </div>
-        </div>
+      <form id="formulaire">
+        <label for="fname">Prénom</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="Prénom.."
+          required="required"
+          pattern="[a-zA-Z]{2,}"
+        />
 
-        <button class="btn btn-dark text-light" type="submit">
-          Envoyer commande
+        <label for="lname">Nom</label>
+        <input
+          type="text"
+          id="lname"
+          name="lastname"
+          placeholder="Nom de famille.."
+          required="required"
+          pattern="[a-zA-Z]{3,}"
+        />
+
+        <label for="adresse">Adresse</label>
+        <input
+          type="text"
+          id="adresse"
+          name="adresse"
+          placeholder="Adresse.."
+          required="required"
+          pattern="(.){4,128}"
+        />
+        <label for="City">Ville</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="Ville.."
+          required="required"
+          pattern="[a-zA-Z]{3,}"
+        />
+        <label for="City">Em@il: </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Adresse email.."
+          required="required"
+          pattern="[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})"
+        />
+        <div id="snackbar"></div>
+        <button type="submit" id="buttonPost" onclick="eventPost(event)">
+          envoyer commande
         </button>
       </form>
     </section>
@@ -130,4 +121,6 @@
   <script src="./Repository/furnitures.js"></script>
   <script src="./notifications.js"></script>
   <script src="./pages/panier.js"></script>
+  <script src="./form.js"></script>
+  <script src="./pages/confirm.js"></script>
 </html>

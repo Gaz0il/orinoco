@@ -51,34 +51,40 @@ async function basketbuilder() {
       del.className = "btn btn-danger";
       del.type = "button";
       del.innerHTML = "Supprimer -  ";
-      del.setAttribute(
-        "onClick",
-
-        "delProdBasket('" + item.color + "," + item.id + "')"
+      del.addEventListener(
+        "click",
+        delProdBasket.bind(null, item.id, item.color),
+        false
       );
+
       cardbodyAdDel.appendChild(del);
     });
   });
   document.getElementById("totalBasket").innerHTML = await totalBasket();
   notification();
 }
-
 basketbuilder();
-/************gestion du panier***************/
 
-function delProdBasket(iden) {
+/********************* Panier vide ************************/
+
+async function hideForm() {
+  (await JSON.parse(localStorage.getItem("basket"))) == null
+    ? (document.getElementById("formulaire").hidden = true)
+    : (document.getElementById("formulaire").hidden = false);
+  document.getElementById("card-container").innerHTML = "Panier Vide";
+}
+
+/************ gestion du panier ***************/
+
+function delProdBasket(id, color) {
   const basket = JSON.parse(localStorage.getItem("basket"));
-  const prodToDel = iden.split(",");
-  const colorToDel = prodToDel[0];
-  const idToDel = prodToDel[1];
 
   const newbasket = basket.filter(
-    (element) => !(element.id === idToDel && element.color === colorToDel)
+    (element) => !(element.id === id && element.color === color)
   );
 
   localStorage.setItem("basket", JSON.stringify(newbasket));
   window.location.reload();
-  notification();
 }
 async function forgePriceBasket(id, q) {
   async function getDetailById(t) {
@@ -104,3 +110,5 @@ async function totalBasket() {
 
   return total;
 }
+hideForm();
+notification();
