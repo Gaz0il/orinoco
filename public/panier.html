@@ -1,12 +1,22 @@
 <html lang="fr">
   <head>
-    <meta name="description" content="Vente de meubles." />
+    <meta name="Panier" content="Vente de meubles." />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
@@ -17,7 +27,7 @@
   </head>
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Orinoca</a>
+      <a class="navbar-brand" href="index.html">Orinoca</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -32,13 +42,85 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Accueil </a>
+            <a class="nav-link" href="index.html">Produits </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="panier.html">Panier</a>
+            <a class="nav-link" href="panier.html"
+              >Panier <span id="notif" class="badge bg-warning"></span
+            ></a>
           </li>
         </ul>
       </div>
     </nav>
+    <section>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Produit(s) ajouté(s)</h5>
+          <div class="container" id="card-container"></div>
+          <div class="total">
+            Total du panier: <span id="totalBasket"></span> €
+          </div>
+        </div>
+      </div>
+      <form id="formulaire">
+        <label for="fname">Prénom</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="Prénom.."
+          required="required"
+          pattern="[a-zA-Z]{2,}"
+        />
+
+        <label for="lname">Nom</label>
+        <input
+          type="text"
+          id="lname"
+          name="lastname"
+          placeholder="Nom de famille.."
+          required="required"
+          pattern="[a-zA-Z]{3,}"
+        />
+
+        <label for="adresse">Adresse</label>
+        <input
+          type="text"
+          id="adresse"
+          name="adresse"
+          placeholder="Adresse.."
+          required="required"
+          pattern="(.){4,128}"
+        />
+        <label for="City">Ville</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="Ville.."
+          required="required"
+          pattern="[a-zA-Z]{3,}"
+        />
+        <label for="City">Em@il: </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Adresse email.."
+          required="required"
+          pattern="[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})"
+        />
+        <div id="snackbar"></div>
+        <button type="submit" id="buttonPost" onclick="eventPost(event)">
+          envoyer commande
+        </button>
+      </form>
+    </section>
   </body>
+  <footer></footer>
+  <script src="./Repository/furnitures.js"></script>
+  <script src="./notifications.js"></script>
+  <script src="./pages/panier.js"></script>
+  <script src="./form.js"></script>
+  <script src="./pages/confirm.js"></script>
 </html>

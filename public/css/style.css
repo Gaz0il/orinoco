@@ -1,0 +1,140 @@
+/**************index***************/
+.furnitureCard {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: gray;
+
+  border-style: solid;
+  border-color: gray;
+}
+.furnitureCard:hover {
+  border-color: black;
+  background-color: #b6b6b6;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 280px;
+}
+.listFunriture {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container {
+  margin-bottom: 80px;
+}
+.outer {
+  margin: 30px;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+/***************product****************/
+section {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  justify-content: center;
+}
+.detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.img-thumbnail {
+  max-width: 60%;
+  height: auto;
+  max-height: 500px;
+}
+.stringDetail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+.description {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.price {
+  width: 100%;
+}
+
+.form-group {
+  width: fit-content;
+}
+.form-control {
+  width: fit-content;
+}
+.selectBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-items: center;
+}
+.form-row {
+  margin-top: 20px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: max-content;
+  background-color: gray;
+}
+
+.card .card {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  max-width: 25em;
+  min-width: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: 	#FFD700;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
