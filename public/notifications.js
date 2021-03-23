@@ -1,6 +1,6 @@
 /** Notification()_check localstorage and count each item */
 function notification() {
-  var c = 0;
+  let c = 0;
 
   const basket =
     localStorage.getItem("basket") !== null
