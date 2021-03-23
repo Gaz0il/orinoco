@@ -1,6 +1,7 @@
 /**
  * Build content of panier.html and update item counter of the basket.
- * */ async function basketbuilder() {
+ * */
+async function basketbuilder() {
   const basket = JSON.parse(localStorage.getItem("basket"));
 
   const containerParent = document.getElementById("card-container");
@@ -115,7 +116,7 @@ async function forgePriceBasket(id, q) {
  * @returns Integer of total price of the localstorage "basket"
  */
 async function totalBasket() {
-  var total = 0;
+  let total = 0;
   const basket = JSON.parse(localStorage.getItem("basket"));
   for (let index = 0; index < basket.length; index++) {
     total =
