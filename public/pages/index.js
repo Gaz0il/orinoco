@@ -11,7 +11,7 @@ async function listfurniture() {
  */
 async function cardBuilderIndex() {
   const dataFurnitures = await listfurniture();
-  console.log(dataFurnitures);
+
   const containerParent = document.getElementById("listFunriture");
 
   if (dataFurnitures !== undefined) {

@@ -1,10 +1,3 @@
-/** If basket is empty, hide form */
-function formDel() {
-  JSON.parse(localStorage.getItem("basket")) == (Object.length = 0)
-    ? (document.getElementById("formulaire").style.visibility = "hidden")
-    : (document.getElementById("formulaire").style.visibility = "visible");
-}
-formDel();
 /** This post return a call to store this orderId from back to the local storage
  * @param contact object.
  * @param products array
