@@ -1,4 +1,6 @@
-async function basketbuilder() {
+/**
+ * Build content of panier.html and update item counter of the basket.
+ * */ async function basketbuilder() {
   const basket = JSON.parse(localStorage.getItem("basket"));
 
   const containerParent = document.getElementById("card-container");
@@ -65,7 +67,9 @@ async function basketbuilder() {
 }
 basketbuilder();
 
-/********************* Panier vide ************************/
+/**
+ * hide form if localstorage is empty
+ */
 
 function hideForm() {
   JSON.parse(localStorage.getItem("basket")) == null
@@ -74,7 +78,11 @@ function hideForm() {
   document.getElementById("card-container").innerHTML = "Panier Vide";
 }
 
-/************ gestion du panier ***************/
+/**
+ * Delete the product on the localstorage.
+ * @param id String of productId
+ * @param color String of product's color
+ */
 
 function delProdBasket(id, color) {
   const basket = JSON.parse(localStorage.getItem("basket"));
@@ -86,6 +94,12 @@ function delProdBasket(id, color) {
   localStorage.setItem("basket", JSON.stringify(newbasket));
   window.location.reload();
 }
+/**
+ * Calculate the total from productId and his quantity
+ * @param  id String of productId
+ * @param  q Integer of quantity
+ * @returns Interger
+ */
 async function forgePriceBasket(id, q) {
   async function getDetailById(t) {
     const getdata = new Furnitures();
@@ -96,6 +110,10 @@ async function forgePriceBasket(id, q) {
 
   return b;
 }
+/**
+ * Loop of forgePriceBasket() to get the amount of basket
+ * @returns Integer of total price of the localstorage "basket"
+ */
 async function totalBasket() {
   var total = 0;
   const basket = JSON.parse(localStorage.getItem("basket"));

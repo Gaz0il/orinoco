@@ -1,7 +1,10 @@
+/** collect data from localstorage
+ * @return Json of the localstorage "confirmation"
+ */
 function dataConfirmation() {
   return JSON.parse(localStorage.getItem("confirmation"));
 }
-/*******Contruction de la confirmation ******/
+/** Build content in confirmation.html  */
 function confirmationBuilder() {
   const data = dataConfirmation();
 
@@ -14,7 +17,7 @@ function confirmationBuilder() {
     data.data.contact.lastName;
   clearall();
 }
-/*******clear storage basket et confirmation*********/
+/** Clear both localstorage "confirmation" and "basket" */
 function clearall() {
   localStorage.removeItem("confirmation");
   localStorage.removeItem("basket");

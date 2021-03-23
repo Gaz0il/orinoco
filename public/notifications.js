@@ -1,3 +1,4 @@
+/** Notification()_check localstorage and count each item */
 function notification() {
   var c = 0;
 

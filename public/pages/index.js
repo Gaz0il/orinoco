@@ -1,8 +1,14 @@
+/**
+ * Call from back of all product
+ * @returns all furnitures
+ */
 async function listfurniture() {
   const getdata = new Furnitures();
   return await getdata.getAllFurnitures();
 }
-
+/**
+ * Build content of index.html with all products
+ */
 async function cardBuilderIndex() {
   const dataFurnitures = await listfurniture();
   console.log(dataFurnitures);

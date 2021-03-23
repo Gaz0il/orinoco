@@ -1,22 +1,35 @@
 const params = new URLSearchParams(window.location.search);
 const meubleId = params.get("id");
 
+/**
+ * @returns String detail of one product
+ * */
 async function getDetailById(id) {
   const getdata = new Furnitures();
   return await getdata.getFunrituresById(id);
 }
-
+/**
+ * Shortcut of document.getElementById()
+ * @param id String
+ * @returns String
+ */
 function selectId(id) {
   const select = document.getElementById(id);
   return select;
 }
+/**
+ * Build content of price in produit.html
+ */
 async function forgePrice() {
   const detailProduct = await getDetailById(meubleId);
   const quantity = document.getElementById("inputValue").value;
   selectId("prix").innerHTML =
     "Prix du lot : " + (detailProduct.price / 100) * quantity + " €";
 }
-
+/**
+ ** Build each product in produit.html.
+ ** if no id or no description or no image, build a specific content
+ */
 async function productBuilder() {
   const detailProduct = await getDetailById(meubleId);
   try {
@@ -46,6 +59,9 @@ async function productBuilder() {
 
 productBuilder();
 
+/**
+ * Add item and quantity to localstorage
+ */
 function addBasket() {
   const basket =
     localStorage.getItem("basket") !== null
