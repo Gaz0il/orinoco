@@ -51,6 +51,7 @@ async function productBuilder() {
     selectId("idProduit").innerHTML = "Out of stock";
     selectId("description").innerHTML = "Out of stock";
     selectId("imgDetail").src = "/./image/outofstock.png";
+    selectId("btn").hidden = true;
     console.log("erreur: " + error);
   }
 
