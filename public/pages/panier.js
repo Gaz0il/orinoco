@@ -73,7 +73,8 @@ basketbuilder();
  */
 
 function hideForm() {
-  JSON.parse(localStorage.getItem("basket")) == null
+  JSON.parse(localStorage.getItem("basket")) == null ||
+  JSON.parse(localStorage.getItem("basket")).length == 0
     ? (document.getElementById("formulaire").hidden = true)
     : (document.getElementById("formulaire").hidden = false) &&
       (document.getElementById("card-container").innerHTML = "Panier vide");
